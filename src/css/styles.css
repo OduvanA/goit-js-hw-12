@@ -1,0 +1,155 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+@import url('./reset.css');
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  padding-left: 16px;
+  border: 1.5px solid #808080;
+  border-radius: 4px;
+  width: 256px;
+  height: 36px;
+  font-family: 'Montserrat' sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #808080;
+}
+
+.input:hover {
+  border: 1.5px solid #000;
+}
+
+.input:focus {
+  border: 1.5px solid #4e75ff;
+  outline: none;
+  color: #2e2f42;
+}
+
+.form {
+  margin-bottom: 40px;
+  width: 400px;
+}
+
+.search-btn {
+  margin-left: 5px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  background: #4e75ff;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.search-btn:hover {
+  background: #6c8cff;
+}
+
+.images-container {
+  max-width: 1135px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.image-card {
+  box-sizing: border-box;
+  border: 1px solid rgb(128, 128, 128);
+  background: url(diego-ph-fIq0tET6llw-unsplash);
+}
+
+.gallery-image {
+  width: 360px;
+  height: 200px;
+}
+
+.stats {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  width: 360px;
+  padding: 4px 0;
+  text-align: center;
+  color: rgb(46, 47, 66);
+  font-family: Montserrat;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+.stats-name {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.numbers {
+  font-weight: 500;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px dotted #070606;
+  border-style: solid solid dotted dotted;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 3s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px dotted #FF3D00;
+  border-style: solid solid dotted;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  animation: rotationBack 2s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
