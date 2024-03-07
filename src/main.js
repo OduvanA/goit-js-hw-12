@@ -12,7 +12,7 @@ const imageContainer = document.querySelector('.images-container');
 const loader = document.querySelector('.loader');
 const loadMoreBtn = document.querySelector('.load-more-btn');
 
-let page = 1;
+let page;
 let inputValue; 
 
 
@@ -21,15 +21,17 @@ loadMoreBtn.addEventListener('click', loadMoreHandler);
 
 async function submitFormHandler(event) {
   event.preventDefault();
+  page = 1;
   imageContainer.innerHTML = null;
-   inputValue = form.input.value.trim();
-  loader.classList.remove('is-hidden');
+  inputValue = form.input.value.trim();
+  loader.classList.add('is-hidden');
+  loadMoreBtn.classList.add('is-hidden');
   
   if (!inputValue) {
-    iziToast.error({
+    return iziToast.error({
       title: 'Error',
       message:
-        'Sorry, there are no images matching your search query. Please try again!',
+        'Please enter your search query',
       iconUrl: error,
       fontSize: 'large',
       position: 'topRight',
@@ -40,13 +42,14 @@ async function submitFormHandler(event) {
       backgroundColor: '#EF4040',
       progressBar: false,
     });
-    loader.classList.add('is-hidden');
-    return;
+    
   } 
   try {
-    const images = await getImages(inputValue);
+    loader.classList.remove('is-hidden');
+    const images = await getImages(inputValue, page);
     if (!images.hits.length) {
-      iziToast.error({
+      loader.classList.add('is-hidden');
+      return iziToast.error({
         title: 'Error',
         message:
           'Sorry, there are no images matching your search query. Please try again!',
@@ -60,6 +63,7 @@ async function submitFormHandler(event) {
         backgroundColor: '#EF4040',
         progressBar: false,
       });
+      
     }
     createImagesMarkup(images.hits);
     loader.classList.add('is-hidden');
