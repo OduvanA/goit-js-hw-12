@@ -16,7 +16,6 @@ export async function getImages(value,  page) {
       per_page: 15,
     }
   });
-  console.log(response.data);
   return response.data;
 
   }
