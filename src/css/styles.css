@@ -41,11 +41,10 @@
   width: 400px;
 }
 
-.search-btn {
+.search-btn, .load-more-btn {
   margin-left: 5px;
   border-radius: 8px;
   padding: 8px 16px;
-  width: 91px;
   height: 40px;
   background: #4e75ff;
   border: none;
@@ -57,7 +56,11 @@
   color: #fff;
 }
 
-.search-btn:hover {
+.load-more-btn {
+  margin-top: 36px;
+}
+
+.search-btn:hover, .load-more-btn:hover {
   background: #6c8cff;
 }
 
@@ -152,4 +155,8 @@
   100% {
     transform: rotate(-360deg);
   }
+}
+
+.is-hidden {
+  display: none;
 }
